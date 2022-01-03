@@ -1,0 +1,142 @@
+:root {
+	--bg-color: #ccc;
+	--bg-table: white;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--bg-color);
+	font-family: 'Courier New', Courier, monospace;
+	margin: 0;
+}
+
+.form {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 1fr;
+	grid-template-areas: 'task input button';
+	gap: 1.4rem;
+	margin: 3rem auto;
+}
+
+.form__label {
+	grid-area: task;
+	font-size: 3rem;
+	justify-self: end;
+	font-weight: bold;
+}
+
+.form__input {
+	grid-area: input;
+	height: 40px;
+	margin: auto;
+}
+
+input[type='text'] {
+	font-size: 1.6rem;
+	padding: 0.4rem;
+	width: 100%;
+}
+
+.button {
+	grid-area: button;
+	width: 30%;
+	font-size: 1.4rem;
+	cursor: pointer;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0px 2px 4px gray;
+	transition: all 0.3s;
+}
+
+.button:hover {
+	transform: scale(1.1);
+}
+
+.button-table {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.button--delete {
+	background-color: lightcoral;
+}
+
+.button--edit {
+	background-color: lightseagreen;
+}
+
+.task__container {
+	text-align: center;
+}
+
+table,
+thead,
+tbody,
+th,
+td {
+	border: 1px solid black;
+	cursor: pointer;
+}
+
+td {
+	padding: 0.4em 0.4em;
+}
+
+.table thead {
+	background-color: var(--bg-table);
+}
+
+thead {
+	font-weight: bold;
+	font-size: 1.3rem;
+}
+
+.table {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.table th {
+	padding-right: 5rem;
+	padding-left: 5rem;
+}
+
+.done {
+	background-color: lightgreen;
+}
+
+.notDone {
+	background-color: lightsalmon;
+}
+
+@media only screen and (max-width: 870px) {
+	.form {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-areas:
+			'task'
+			'input'
+			'button';
+	}
+
+	.form__label {
+		width: 100%;
+		text-align: center;
+	}
+
+	input[type='text'] {
+		width: 70%;
+	}
+
+	.button {
+		width: 30%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
